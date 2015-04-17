@@ -1,9 +1,16 @@
 def abbreviate(str)
 	str = str.chomp
-	if str.length > 55
-		str = str[0..40]
-		str.chop! if str[-1] == " "
-		str += "... <Read More>"
+	if str.length <= 55
+    puts str
+    return
+  else
+		str = str[0...40]
+    if str.include?(' ')
+		  counter = -1
+      counter -= 1 while str[counter] != ' '
+      str = str[0...counter]
+    end
+		str += '... <Read More>'
 	end
 	puts str
 end
